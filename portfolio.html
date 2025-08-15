@@ -5,27 +5,63 @@
 <title>Portfolio - Toby Berner</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-    body {
-        font-family: "Verdana", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
+    :root {
+        --dark-green: #004225;
+        --light-green: #cfe5d2;
+        --transition-speed: 0.3s;
     }
+    body {
+        margin: 0;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        background-color: var(--dark-green);
+        color: white;
+    }
+
+    /* Navbar identical to index.html */
     nav {
-        background-color: white;
-        border-bottom: 1px solid #ccc;
-        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 1000;
+        background-color: var(--dark-green);
+        transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     }
-    nav a {
+    nav.scrolled {
+        background-color: white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    nav .nav-left a {
         text-decoration: none;
-        color: black;
-        margin-left: 20px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+        transition: color var(--transition-speed);
     }
+    nav.scrolled .nav-left a {
+        color: black;
+    }
+    nav .nav-links a {
+        margin-left: 15px;
+        text-decoration: none;
+        color: white;
+        font-weight: normal;
+        transition: color var(--transition-speed);
+    }
+    nav.scrolled .nav-links a {
+        color: black;
+    }
+    nav .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* Page content */
     section {
-        padding: 40px;
+        padding: 100px 20px;
         max-width: 900px;
         margin: auto;
     }
@@ -33,10 +69,9 @@
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-    <div><a href="index.html">Toby Berner</a></div>
-    <div>
+<nav id="navbar">
+    <div class="nav-left"><a href="index.html">Toby Berner</a></div>
+    <div class="nav-links">
         <a href="portfolio.html">Portfolio</a>
         <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
@@ -47,6 +82,18 @@
     <h1>Portfolio</h1>
     <p>My projects will go here.</p>
 </section>
+
+<script>
+    // For future scroll sections on portfolio page
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
 
 </body>
 </html>
