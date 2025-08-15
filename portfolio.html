@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 :root {
-    --dark-green: #013220; /* Dark Aston Martin green */
-    --light-green: #cfe5d2; /* Complementary lighter green */
+    --dark-green: #013220; 
+    --light-green: #cfe5d2; 
     --transition-speed: 0.3s;
 }
 
@@ -21,10 +21,7 @@ body {
     animation: fadeInBody 0.7s forwards;
 }
 
-/* Fade-in animation */
-@keyframes fadeInBody {
-    to { opacity: 1; }
-}
+@keyframes fadeInBody { to { opacity: 1; } }
 
 /* Navbar identical to index.html */
 nav {
@@ -33,7 +30,7 @@ nav {
     left: 0;
     width: 100%;
     background-color: var(--dark-green);
-    padding: 10px 30px;
+    padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,30 +41,47 @@ nav .nav-left a, nav .nav-links a {
     text-decoration: none;
     color: var(--light-green);
     font-weight: normal;
-    margin-left: 15px;
+    margin-left: 25px;
+    font-size: 1.3rem;
+    position: relative;
     transition: color var(--transition-speed);
 }
 
 nav .nav-left a {
     font-weight: bold;
-    font-size: 1.2rem;
     margin-left: 0;
+    font-size: 1.6rem;
 }
 
-nav .nav-links a:hover {
-    text-decoration: underline;
+nav .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--light-green);
+    transition: width 0.3s ease;
+}
+
+nav .nav-links a:hover::after {
+    width: 100%;
 }
 
 /* Portfolio content */
 section {
-    padding: 100px 20px;
-    max-width: 900px;
-    margin: auto;
+    padding: 120px 20px;
+    max-width: 100%;
     width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 4rem;
+}
+p {
+    font-size: 2rem;
+    line-height: 1.6;
 }
 </style>
 </head>
