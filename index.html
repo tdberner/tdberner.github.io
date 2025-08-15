@@ -31,4 +31,158 @@ body {
 .button-underline-animation::after { content: ''; position: absolute; width: 0%; height: 2px; bottom: -3px; left: 0; background-color: var(--light-green); transition: width 0.3s ease; }
 .button-underline-animation:hover::after { width: 100%; }
 #navbar-responsive { display: none; cursor: pointer; }
-#dropdown-navbar { display: none
+#dropdown-navbar { display: none; flex-direction: column; background-color: var(--dark-green); width: 100%; }
+#dropdown-navbar a { padding: 10px 20px; border-top: 1px solid var(--light-green); }
+
+/* Full-page sections */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease, background-color var(--transition-speed);
+    background-color: var(--dark-green);
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section.light-background {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+}
+
+/* Landing section */
+.landing { background-color: var(--dark-green); color: var(--light-green); flex-direction: row; justify-content: center; align-items: center; display: flex; }
+.landing-text { max-width: 600px; }
+.landing-text p { font-size: 1.5rem; margin: 0; }
+.landing-text h1 { font-size: 3.5rem; margin-top: 10px; font-family: "Palatino", "Palatino Linotype", "Book Antiqua", serif; font-weight: 900; }
+.landing-image { margin-left: 40px; }
+
+/* Circular portrait photo with hover zoom */
+.portrait-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+}
+
+.portrait-photo:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.5);
+}
+
+/* About & Contact sections */
+#about, #contact { width: 100%; padding: 60px 20px; }
+h2 { font-size: 2rem; margin-bottom: 20px; }
+#about p, .contact-info p { font-size: 1.2rem; line-height: 1.6; }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .landing { flex-direction: column; }
+    .landing-text { margin-bottom: 30px; }
+    .landing-text p { font-size: 1.5rem; }
+    .landing-text h1 { font-size: 3rem; }
+    .menu-right { display: none; }
+    #navbar-responsive { display: block; color: var(--light-green); font-size: 1.5rem; }
+    #dropdown-navbar { display: flex; flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="nav-parent">
+  <div class="navbar">
+    <div class="menu-left">
+      <div class="menu-btn">
+        <a href="#top" class="button-underline-animation">Toby Berner</a>
+      </div>
+    </div>
+    <div class="menu-right">
+      <div class="menu-btn"><a href="portfolio.html" class="button-underline-animation">Portfolio</a></div>
+      <div class="menu-btn"><a href="#about" class="button-underline-animation">About</a></div>
+      <div class="menu-btn"><a href="#contact" class="button-underline-animation">Contact</a></div>
+    </div>
+    <div id="navbar-responsive" onclick="toggleDropdown()">☰</div>
+  </div>
+</div>
+
+<div id="dropdown-navbar">
+  <div class="menu-btn"><a href="portfolio.html" class="button-underline-animation" onclick="toggleDropdown()">Portfolio</a></div>
+  <div class="menu-btn"><a href="#about" class="button-underline-animation" onclick="toggleDropdown()">About</a></div>
+  <div class="menu-btn"><a href="#contact" class="button-underline-animation" onclick="toggleDropdown()">Contact</a></div>
+</div>
+
+<!-- Landing Section -->
+<section id="top" class="landing active">
+  <div class="landing-text">
+    <p>Hi, my name is</p>
+    <h1>Toby Berner</h1>
+  </div>
+  <div class="landing-image">
+    <a href="#about"><img src="/assets/ireland-portrait.jpg" alt="Portrait of Toby Berner" class="portrait-photo"></a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I’m a Master’s student at the University of Pennsylvania School of Engineering and Applied Science, pursuing mechanical engineering. I recently graduated from Haverford College with a bachelor’s degree in physics and a minor in fine arts. I am actively seeking full-time mechanical engineering positions following my graduation in spring 2026.</p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-info">
+    <p>Email: toby.berner@example.com</p>
+    <p>Phone: (123) 456-7890</p>
+  </div>
+</section>
+
+<script>
+// Fade in/out & background toggle
+const sections = document.querySelectorAll('section');
+const observerOptions = { threshold: 0.3 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active', 'light-background');
+    } else {
+      entry.target.classList.remove('light-background');
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => observer.observe(section));
+
+// Toggle dropdown menu for mobile
+function toggleDropdown() {
+  const dropdown = document.getElementById('dropdown-navbar');
+  dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+}
+
+// Smooth scrolling for buttons and portrait
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+</script>
+
+</body>
+</html>
