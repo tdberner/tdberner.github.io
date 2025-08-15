@@ -18,42 +18,54 @@ body {
     scroll-behavior: smooth;
     background-color: var(--dark-green);
     color: var(--light-green);
-    opacity: 0;
-    animation: fadeInBody 0.7s forwards;
 }
 
-@keyframes fadeInBody { to { opacity: 1; } }
-
-/* Navbar */
-nav {
+/* Navbar parent */
+.nav-parent {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
+    z-index: 1000;
     background-color: var(--dark-green);
-    padding: 10px 30px;
+}
+
+/* Navbar row */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    padding: 10px 30px;
+    box-sizing: border-box;
 }
 
-nav .nav-left a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--light-green);
+/* Menu left and right */
+.menu-left, .menu-right {
+    display: flex;
+    align-items: center;
 }
 
-nav .nav-links a {
+.menu-btn {
+    margin-left: 20px;
+}
+
+.menu-left .menu-btn { margin-left: 0; }
+
+/* Links styling with underline animation */
+.button-underline-animation {
     text-decoration: none;
     color: var(--light-green);
     font-weight: normal;
-    margin-left: 10px; /* shifted left */
     position: relative;
+    transition: color var(--transition-speed);
 }
 
-nav .nav-links a::after {
+.menu-left .button-underline-animation {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Underline animation */
+.button-underline-animation::after {
     content: '';
     position: absolute;
     width: 0%;
@@ -64,21 +76,39 @@ nav .nav-links a::after {
     transition: width 0.3s ease;
 }
 
-nav .nav-links a:hover::after {
+.button-underline-animation:hover::after {
     width: 100%;
+}
+
+/* Responsive hamburger menu */
+#navbar-responsive {
+    display: none;
+    cursor: pointer;
+}
+
+#dropdown-navbar {
+    display: none;
+    flex-direction: column;
+    background-color: var(--dark-green);
+    width: 100%;
+}
+
+#dropdown-navbar a {
+    padding: 10px 20px;
+    border-top: 1px solid var(--light-green);
 }
 
 /* Full-page sections */
 section {
-    min-height: 100vh; /* full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    text-align: center;
     width: 100%;
+    text-align: center;
     padding: 40px 20px;
+    box-sizing: border-box;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1s ease, transform 1s ease;
@@ -90,45 +120,15 @@ section.active {
 }
 
 /* Landing section */
-.landing {
-    background-color: var(--dark-green);
-    color: var(--light-green);
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-.landing-text {
-    max-width: 600px;
-}
-
+.landing { background-color: var(--dark-green); color: var(--light-green); flex-direction: row; justify-content: center; align-items: center; display: flex; }
+.landing-text { max-width: 600px; }
 .landing-text p { font-size: 1.5rem; margin: 0; }
-.landing-text h1 {
-    font-size: 3.5rem;
-    margin-top: 10px;
-    font-family: "Palatino", "Palatino Linotype", "Book Antiqua", serif;
-    font-weight: 900;
-}
+.landing-text h1 { font-size: 3.5rem; margin-top: 10px; font-family: "Palatino", "Palatino Linotype", "Book Antiqua", serif; font-weight: 900; }
+.landing-image { margin-left: 40px; }
+.landing-image img { max-width: 300px; border-radius: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.4); }
 
-.landing-image {
-    margin-left: 40px;
-}
-
-.landing-image img {
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
-}
-
-/* About and Contact sections */
-#about, #contact {
-    background-color: var(--light-green);
-    color: var(--dark-green);
-    width: 100%; /* span full width */
-    padding: 60px 20px;
-}
-
+/* About & Contact sections */
+#about, #contact { background-color: var(--light-green); color: var(--dark-green); width: 100%; padding: 60px 20px; }
 h2 { font-size: 2rem; margin-bottom: 20px; }
 #about p, .contact-info p { font-size: 1.2rem; line-height: 1.6; }
 
@@ -138,64 +138,83 @@ h2 { font-size: 2rem; margin-bottom: 20px; }
     .landing-text { margin-bottom: 30px; }
     .landing-text p { font-size: 1.5rem; }
     .landing-text h1 { font-size: 3rem; }
+    .menu-right { display: none; }
+    #navbar-responsive { display: block; color: var(--light-green); font-size: 1.5rem; }
+    #dropdown-navbar { display: flex; flex-direction: column; }
 }
-
-/* Scroll animation handled in JS */
 </style>
 </head>
 <body>
 
-<nav>
-    <div class="nav-left"><a href="#top">Toby Berner</a></div>
-    <div class="nav-links">
-        <a href="portfolio.html">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+<!-- Navbar -->
+<div class="nav-parent">
+  <div class="navbar">
+    <div class="menu-left">
+      <div class="menu-btn">
+        <a href="#top" class="button-underline-animation">Toby Berner</a>
+      </div>
     </div>
-</nav>
+    <div class="menu-right">
+      <div class="menu-btn"><a href="portfolio.html" class="button-underline-animation">Portfolio</a></div>
+      <div class="menu-btn"><a href="#about" class="button-underline-animation">About</a></div>
+      <div class="menu-btn"><a href="#contact" class="button-underline-animation">Contact</a></div>
+    </div>
+    <div id="navbar-responsive" onclick="toggleDropdown()">☰</div>
+  </div>
+</div>
+
+<div id="dropdown-navbar">
+  <div class="menu-btn"><a href="portfolio.html" class="button-underline-animation" onclick="toggleDropdown()">Portfolio</a></div>
+  <div class="menu-btn"><a href="#about" class="button-underline-animation" onclick="toggleDropdown()">About</a></div>
+  <div class="menu-btn"><a href="#contact" class="button-underline-animation" onclick="toggleDropdown()">Contact</a></div>
+</div>
 
 <!-- Landing Section -->
 <section id="top" class="landing active">
-    <div class="landing-text">
-        <p>Hi, my name is</p>
-        <h1>Toby Berner</h1>
-    </div>
-    <div class="landing-image">
-        <img src="/assets/ireland-portrait.jpg" alt="Portrait of Toby Berner">
-    </div>
+  <div class="landing-text">
+    <p>Hi, my name is</p>
+    <h1>Toby Berner</h1>
+  </div>
+  <div class="landing-image">
+    <img src="/assets/ireland-portrait.jpg" alt="Portrait of Toby Berner">
+  </div>
 </section>
 
 <!-- About Section -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a Master’s student at the University of Pennsylvania School of Engineering and Applied Science, pursuing mechanical engineering. I recently graduated from Haverford College with a bachelor’s degree in physics and a minor in fine arts. I am actively seeking full-time mechanical engineering positions following my graduation in spring 2026.</p>
+  <h2>About Me</h2>
+  <p>I’m a Master’s student at the University of Pennsylvania School of Engineering and Applied Science, pursuing mechanical engineering. I recently graduated from Haverford College with a bachelor’s degree in physics and a minor in fine arts. I am actively seeking full-time mechanical engineering positions following my graduation in spring 2026.</p>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-info">
-        <p>Email: toby.berner@example.com</p>
-        <p>Phone: (123) 456-7890</p>
-    </div>
+  <h2>Contact</h2>
+  <div class="contact-info">
+    <p>Email: toby.berner@example.com</p>
+    <p>Phone: (123) 456-7890</p>
+  </div>
 </section>
 
 <script>
 // Scroll-triggered fade-in for sections
 const sections = document.querySelectorAll('section');
-const observerOptions = {
-    threshold: 0.1
-};
+const observerOptions = { threshold: 0.1 };
 const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-        }
-    });
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
+  });
 }, observerOptions);
+sections.forEach(section => observer.observe(section));
 
-sections.forEach(section => { observer.observe(section); });
+// Toggle dropdown menu for mobile
+function toggleDropdown() {
+  const dropdown = document.getElementById('dropdown-navbar');
+  if(dropdown.style.display === 'flex'){ dropdown.style.display = 'none'; }
+  else{ dropdown.style.display = 'flex'; }
+}
 </script>
 
 </body>
