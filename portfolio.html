@@ -20,83 +20,19 @@ body {
     color: var(--light-green);
 }
 
-/* Navbar parent */
-.nav-parent {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--dark-green);
-}
-
-/* Navbar row */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    box-sizing: border-box;
-}
-
-/* Menu left and right */
-.menu-left, .menu-right {
-    display: flex;
-    align-items: center;
-}
-
-.menu-btn {
-    margin-left: 20px;
-}
-
+/* Navbar */
+.nav-parent { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: var(--dark-green); }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; box-sizing: border-box; }
+.menu-left, .menu-right { display: flex; align-items: center; }
+.menu-btn { margin-left: 20px; }
 .menu-left .menu-btn { margin-left: 0; }
-
-/* Links styling with underline animation */
-.button-underline-animation {
-    text-decoration: none;
-    color: var(--light-green);
-    font-weight: normal;
-    position: relative;
-    transition: color var(--transition-speed);
-}
-
-.menu-left .button-underline-animation {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* Underline animation */
-.button-underline-animation::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--light-green);
-    transition: width 0.3s ease;
-}
-
-.button-underline-animation:hover::after {
-    width: 100%;
-}
-
-/* Responsive hamburger menu */
-#navbar-responsive {
-    display: none;
-    cursor: pointer;
-}
-
-#dropdown-navbar {
-    display: none;
-    flex-direction: column;
-    background-color: var(--dark-green);
-    width: 100%;
-}
-
-#dropdown-navbar a {
-    padding: 10px 20px;
-    border-top: 1px solid var(--light-green);
-}
+.button-underline-animation { text-decoration: none; color: var(--light-green); position: relative; transition: color var(--transition-speed); }
+.menu-left .button-underline-animation { font-weight: bold; font-size: 1.2rem; }
+.button-underline-animation::after { content: ''; position: absolute; width: 0%; height: 2px; bottom: -3px; left: 0; background-color: var(--light-green); transition: width 0.3s ease; }
+.button-underline-animation:hover::after { width: 100%; }
+#navbar-responsive { display: none; cursor: pointer; }
+#dropdown-navbar { display: none; flex-direction: column; background-color: var(--dark-green); width: 100%; }
+#dropdown-navbar a { padding: 10px 20px; border-top: 1px solid var(--light-green); }
 
 /* Full-page section */
 section {
@@ -111,7 +47,8 @@ section {
     box-sizing: border-box;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 1s ease, transform 1s ease, background-color var(--transition-speed);
+    background-color: var(--dark-green);
 }
 
 section.active {
@@ -119,6 +56,12 @@ section.active {
     transform: translateY(0);
 }
 
+section.light-background {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+}
+
+/* Portfolio Section */
 h1 { font-size: 3.5rem; margin-bottom: 20px; }
 
 /* Mobile adjustments */
@@ -155,7 +98,7 @@ h1 { font-size: 3.5rem; margin-bottom: 20px; }
 </div>
 
 <!-- Portfolio Section -->
-<section class="active">
+<section class="active light-background">
   <h1>Portfolio</h1>
   <p>My projects will go here.</p>
 </section>
@@ -167,8 +110,9 @@ const observerOptions = { threshold: 0.1 };
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-      entry.target.classList.add('active');
-      observer.unobserve(entry.target);
+      entry.target.classList.add('active', 'light-background');
+    } else {
+      entry.target.classList.remove('light-background');
     }
   });
 }, observerOptions);
