@@ -30,27 +30,26 @@ nav {
     left: 0;
     width: 100%;
     background-color: var(--dark-green);
-    padding: 15px 40px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 
-nav .nav-left a, nav .nav-links a {
+nav .nav-left a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--light-green);
+}
+
+nav .nav-links a {
     text-decoration: none;
     color: var(--light-green);
     font-weight: normal;
-    margin-left: 25px;
-    font-size: 1.3rem;
+    margin-left: 10px; /* shifted left */
     position: relative;
-    transition: color var(--transition-speed);
-}
-
-nav .nav-left a {
-    font-weight: bold;
-    margin-left: 0;
-    font-size: 1.6rem;
 }
 
 nav .nav-links a::after {
@@ -70,17 +69,19 @@ nav .nav-links a:hover::after {
 
 /* Portfolio content */
 section {
-    padding: 120px 20px;
-    max-width: 100%;
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
     width: 100%;
+    text-align: center; /* center content */
     box-sizing: border-box;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3.5rem; /* original size */
 }
 p {
-    font-size: 2rem;
+    font-size: 1.5rem; /* original size */
     line-height: 1.6;
 }
 </style>
