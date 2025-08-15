@@ -15,44 +15,57 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    scroll-behavior: smooth;
     background-color: var(--dark-green);
     color: var(--light-green);
-    opacity: 0; 
-    animation: fadeInBody 0.7s forwards;
 }
 
-@keyframes fadeInBody { to { opacity: 1; } }
-
-/* Navbar identical to index.html */
-nav {
+/* Navbar parent */
+.nav-parent {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
+    z-index: 1000;
     background-color: var(--dark-green);
-    padding: 10px 30px;
+}
+
+/* Navbar row */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    padding: 10px 30px;
+    box-sizing: border-box;
 }
 
-nav .nav-left a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--light-green);
+/* Menu left and right */
+.menu-left, .menu-right {
+    display: flex;
+    align-items: center;
 }
 
-nav .nav-links a {
+.menu-btn {
+    margin-left: 20px;
+}
+
+.menu-left .menu-btn { margin-left: 0; }
+
+/* Links styling with underline animation */
+.button-underline-animation {
     text-decoration: none;
     color: var(--light-green);
     font-weight: normal;
-    margin-left: 10px; /* shifted left */
     position: relative;
+    transition: color var(--transition-speed);
 }
 
-nav .nav-links a::after {
+.menu-left .button-underline-animation {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Underline animation */
+.button-underline-animation::after {
     content: '';
     position: absolute;
     width: 0%;
@@ -63,44 +76,111 @@ nav .nav-links a::after {
     transition: width 0.3s ease;
 }
 
-nav .nav-links a:hover::after {
+.button-underline-animation:hover::after {
     width: 100%;
 }
 
-/* Portfolio content */
+/* Responsive hamburger menu */
+#navbar-responsive {
+    display: none;
+    cursor: pointer;
+}
+
+#dropdown-navbar {
+    display: none;
+    flex-direction: column;
+    background-color: var(--dark-green);
+    width: 100%;
+}
+
+#dropdown-navbar a {
+    padding: 10px 20px;
+    border-top: 1px solid var(--light-green);
+}
+
+/* Full-page section */
 section {
-    padding: 100px 20px;
-    max-width: 900px;
-    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    text-align: center; /* center content */
+    text-align: center;
+    padding: 40px 20px;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-h1 {
-    font-size: 3.5rem; /* original size */
+section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
-p {
-    font-size: 1.5rem; /* original size */
-    line-height: 1.6;
+
+h1 { font-size: 3.5rem; margin-bottom: 20px; }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .menu-right { display: none; }
+    #navbar-responsive { display: block; color: var(--light-green); font-size: 1.5rem; }
+    #dropdown-navbar { display: flex; flex-direction: column; }
 }
 </style>
 </head>
 <body>
 
-<nav>
-    <div class="nav-left"><a href="index.html">Toby Berner</a></div>
-    <div class="nav-links">
-        <a href="portfolio.html">Portfolio</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+<!-- Navbar -->
+<div class="nav-parent">
+  <div class="navbar">
+    <div class="menu-left">
+      <div class="menu-btn">
+        <a href="index.html#top" class="button-underline-animation">Toby Berner</a>
+      </div>
     </div>
-</nav>
+    <div class="menu-right">
+      <div class="menu-btn"><a href="portfolio.html" class="button-underline-animation">Portfolio</a></div>
+      <div class="menu-btn"><a href="index.html#about" class="button-underline-animation">About</a></div>
+      <div class="menu-btn"><a href="index.html#contact" class="button-underline-animation">Contact</a></div>
+    </div>
+    <div id="navbar-responsive" onclick="toggleDropdown()">☰</div>
+  </div>
+</div>
 
-<section>
-    <h1>Portfolio</h1>
-    <p>My projects will go here.</p>
+<div id="dropdown-navbar">
+  <div class="menu-btn"><a href="portfolio.html" class="button-underline-animation" onclick="toggleDropdown()">Portfolio</a></div>
+  <div class="menu-btn"><a href="index.html#about" class="button-underline-animation" onclick="toggleDropdown()">About</a></div>
+  <div class="menu-btn"><a href="index.html#contact" class="button-underline-animation" onclick="toggleDropdown()">Contact</a></div>
+</div>
+
+<!-- Portfolio Section -->
+<section class="active">
+  <h1>Portfolio</h1>
+  <p>My projects will go here.</p>
 </section>
+
+<script>
+// Scroll-triggered fade-in for sections
+const sections = document.querySelectorAll('section');
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+sections.forEach(section => observer.observe(section));
+
+// Toggle dropdown menu for mobile
+function toggleDropdown() {
+  const dropdown = document.getElementById('dropdown-navbar');
+  if(dropdown.style.display === 'flex'){ dropdown.style.display = 'none'; }
+  else{ dropdown.style.display = 'flex'; }
+}
+</script>
 
 </body>
 </html>
