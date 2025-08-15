@@ -5,71 +5,75 @@
 <title>Portfolio - Toby Berner</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-    :root {
-        --dark-green: #004225;
-        --light-green: #cfe5d2;
-        --transition-speed: 0.3s;
-    }
-    body {
-        margin: 0;
-        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-        background-color: var(--dark-green);
-        color: white;
-    }
+:root {
+    --dark-green: #013220; /* Dark Aston Martin green */
+    --light-green: #cfe5d2; /* Complementary lighter green */
+    --transition-speed: 0.3s;
+}
 
-    /* Navbar identical to index.html */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        background-color: var(--dark-green);
-        transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    }
-    nav.scrolled {
-        background-color: white;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    nav .nav-left a {
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.2rem;
-        color: white;
-        transition: color var(--transition-speed);
-    }
-    nav.scrolled .nav-left a {
-        color: black;
-    }
-    nav .nav-links a {
-        margin-left: 15px;
-        text-decoration: none;
-        color: white;
-        font-weight: normal;
-        transition: color var(--transition-speed);
-    }
-    nav.scrolled .nav-links a {
-        color: black;
-    }
-    nav .nav-links a:hover {
-        text-decoration: underline;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    background-color: var(--dark-green);
+    color: var(--light-green);
+    opacity: 0; 
+    animation: fadeInBody 0.7s forwards;
+}
 
-    /* Page content */
-    section {
-        padding: 100px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
+/* Fade-in animation */
+@keyframes fadeInBody {
+    to { opacity: 1; }
+}
+
+/* Navbar identical to index.html */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-green);
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav .nav-left a, nav .nav-links a {
+    text-decoration: none;
+    color: var(--light-green);
+    font-weight: normal;
+    margin-left: 15px;
+    transition: color var(--transition-speed);
+}
+
+nav .nav-left a {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 0;
+}
+
+nav .nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Portfolio content */
+section {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+    width: 100%;
+}
+
+h1 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
 </style>
 </head>
 <body>
 
-<nav id="navbar">
+<nav>
     <div class="nav-left"><a href="index.html">Toby Berner</a></div>
     <div class="nav-links">
         <a href="portfolio.html">Portfolio</a>
@@ -82,18 +86,6 @@
     <h1>Portfolio</h1>
     <p>My projects will go here.</p>
 </section>
-
-<script>
-    // For future scroll sections on portfolio page
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-</script>
 
 </body>
 </html>
