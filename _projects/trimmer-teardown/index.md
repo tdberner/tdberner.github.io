@@ -12,8 +12,8 @@ skills:
 main-image: /wahl4.jpg
 ---
 ## Disassembled Product
-{% include image-gallery.html images="wahl1.jpg" height="800" %}
+{% include image-gallery.html images="wahl1.jpg" height="600" %}
 ## Product Architecture
-{% include image-gallery.html images="wahl2.jpg" height="600" %}
+{% include image-gallery.html images="wahl2.jpg" height="400" %}
 ## Product Structure Diagram
 {% include image-gallery.html images="wahl3.jpg" height="600" %}
