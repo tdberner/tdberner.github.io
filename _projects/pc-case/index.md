@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Desktop PC Dock and Carry Case
-description:  A Dual-purpose riser platform and carrying case for my SFF (small form factor) desktop PC designed for my class "IPD 5270 Industrial Design I"
+description:  A dual-purpose riser platform and carrying case for my SFF (small form factor) desktop PC designed for my class 'IPD 5270 Industrial Design I.' The design improves portability, enhances airflow by lifting the PC ~1 inch for better intake through the bottom vents, and protects the PC during transportation, while maintaining a minimalist, premium aesthetic inspired by the Fractal Design Terra case design language.
 skills: 
   - Product concept development
   - product problem definition
