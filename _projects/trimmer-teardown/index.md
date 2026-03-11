@@ -9,5 +9,11 @@ skills:
   - Quality Function Deployment (QFD) analysis
   - Manufacturing and materials analysis
 
-main-image: /wahl1.jpg
+main-image: /wahl4.jpg
 ---
+## Disassembled Product
+{% include image-gallery.html images="wahl1.jpg" height="800" %}
+## Product Architecture
+{% include image-gallery.html images="wahl2.jpg" height="600" %}
+## Product Structure Diagram
+{% include image-gallery.html images="wahl3.jpg" height="600" %}
