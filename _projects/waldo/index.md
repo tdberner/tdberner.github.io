@@ -16,3 +16,5 @@ main-image: /waldo1.jpg
 {% include image-gallery.html images="waldo3.jpg" height="600" %}
 ## Laser-cutting instructions
 {% include image-gallery.html images="waldo2.png" height="500" %}
+## Waldo Dance!
+{% include youtube-video.html id="{ZDk01fJXQmc}" autoplay= "false"%}
