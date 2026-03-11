@@ -12,3 +12,4 @@ skills:
 main-image: /needles.jpg
 ---
 ## Final Poster
+{% include image-gallery.html images="poster.jpg" height="1200" %}
