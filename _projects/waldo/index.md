@@ -17,4 +17,4 @@ main-image: /waldo1.jpg
 ## Laser-cutting instructions
 {% include image-gallery.html images="waldo2.png" height="500" %}
 ## Waldo Dance!
-{% include youtube-video.html id="{ZDk01fJXQmc}" autoplay= "false"%}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZDk01fJXQmc?si=GwJOAyddN559Qz8W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
