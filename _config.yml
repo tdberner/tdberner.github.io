@@ -26,7 +26,7 @@ profile_image: ./assets/images/profile-image/ireland-portrait.jpg
 
 # Link your resume
 # You can place your resume in assets/resume/{resume.pdf or add external link such as pdf saved in google drive 
-resume-url: /assets/resume/resume.pdf # or https://drive.google.com/file/d/1EQg9h9-0w1_WWuuCY8vFMSlQGl0tJv8Z/view?usp=sharing
+resume-url: /assets/resume/toby berner resume.pdf # or https://drive.google.com/file/d/1EQg9h9-0w1_WWuuCY8vFMSlQGl0tJv8Z/view?usp=sharing
 
 
 # Set up external links - this will show up as small icons next to your name.
