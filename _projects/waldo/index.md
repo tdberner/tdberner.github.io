@@ -12,3 +12,7 @@ skills:
 
 main-image: /waldo1.jpg
 ---
+## Final Waldo Design
+{% include image-gallery.html images="waldo3.jpg" height="400" %}
+## Laser-cutting instructions
+{% include image-gallery.html images="waldo2.jpg" height="400" %}
