@@ -11,7 +11,7 @@ skills:
 
 main-image: /case1.jpg
 ---
-{% include image-gallery.html images="case2.jpg, case3.jpg" height="500" %}
+{% include image-gallery.html images="case2.jpg, case3.jpg" height="450" %}
 ## Frame
 - Structural caps + cross-beams
 - Vertical vents echo Terra panels
