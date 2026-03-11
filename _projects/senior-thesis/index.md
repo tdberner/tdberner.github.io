@@ -11,3 +11,4 @@ skills:
 - Precision sensor integration
 main-image: /needles.jpg
 ---
+## Final Poster
