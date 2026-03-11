@@ -1,13 +1,16 @@
 ---
 layout: post
-title: Desktop PC Dock and Carry Case
-description:  A Dual-Purpose Riser Platform and Carrying Case for my SFF (small form factor) Desktop PC Designed for IPD 5270: Industrial Design I
+title: Super Heavy Booster Catch (Demo Only)
+description:  (I have never been employed by / affiliated with SpaceX. This is for demo use only) 
+    Developing the Super Heavy booster catch project involves designing a robust launch tower with "chopstick" arms, advanced control systems for precise booster alignment, and integrating sophisticated software for real-time trajectory adjustments and structural engineering to handle immense forces.
 skills: 
-  - Product concept development
-  - Poduct problem definition
-  - 3D CAD Modelling
-  - Rapid prototyping
-  - Additive manufacturing
+  - Structural analysis
+  - Aerodynamic design
+  - Propulsion system integration
+  - Control Algorithem 
+  - Welding
+  - Metal forming
+  - Thermal simulation
 
-main-image: /case1.jpg
+main-image: /project2.jpg
 ---
