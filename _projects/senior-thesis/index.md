@@ -16,5 +16,5 @@ skills:
 - Scanning electron microscopy
 - Chemical vapor deposition
 - Precision sensor integration
-main-image: /project.webp
+main-image: /needles.jpg
 ---
