@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Desktop PC Dock and Carry Case
-description:  A Dual
+description:  A Dual-purpose
 skills: 
   - Structural analysis
   - Aerodynamic design
