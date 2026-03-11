@@ -26,7 +26,7 @@ profile_image: ./assets/images/profile-image/ireland-portrait.jpg
 
 # Link your resume
 # You can place your resume in assets/resume/{resume.pdf or add external link such as pdf saved in google drive 
-resume-url: https://drive.google.com/file/d/1EQg9h9-0w1_WWuuCY8vFMSlQGl0tJv8Z/view?usp=sharing # or /assets/resume/resume.pdf
+resume-url: /assets/resume/resume.pdf # or https://drive.google.com/file/d/1EQg9h9-0w1_WWuuCY8vFMSlQGl0tJv8Z/view?usp=sharing
 
 
 # Set up external links - this will show up as small icons next to your name.
@@ -74,18 +74,18 @@ skills:
 
 
 # Contact Form Setup. Setup an account and copy over the key. When someone fills out the form, it will be received in your email.
-formspree-key:   https://formspree.io/f/{8-digit key}
+formspree-key:   https://formspree.io/f/mgonklqz
 
 
 
 # Active theme (Updatethis to switch themes). Make sure to keep the indentation the samne.
 colors: # this is the basic theme
-  text: "#1a1c20"
-  border: "#ddd"
-  link: "#4a76ee"
-  highlight: "#0c0cf2"
-  background: "#ffffff"
-  light_background: "#f3f5fb"
+  text: "#2c3333"
+  border: "#e0f2ef"
+  link: "#40b3a2"
+  highlight: "#2a9d8f"
+  background: "#f7fbfa"
+  light_background: "#f0f9f7"
 
 # A few examples. 
 basic theme:
