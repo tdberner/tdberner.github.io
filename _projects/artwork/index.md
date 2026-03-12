@@ -7,9 +7,11 @@ skills:
 - Painting
 main-image: /painting19.jpg
 ---
+## Drawings
 {% include image-gallery.html images="drawing1.jpg" height="400" %}
 {% include image-gallery.html images="drawing2.jpg" height="400" %}
 {% include image-gallery.html images="drawing3.jpg" height="400" %}
+## Paintings
 {% include image-gallery.html images="painting1.jpg" height="400" %}
 {% include image-gallery.html images="painting2.jpg" height="400" %}
 {% include image-gallery.html images="painting3.jpg" height="400" %}
