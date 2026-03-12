@@ -11,7 +11,7 @@ main-image: /painting9.jpg
 {% include image-gallery.html images="drawing1.jpg" height="700" %}
 {% include image-gallery.html images="drawing2.jpg" height="700" %}
 {% include image-gallery.html images="drawing3.jpg" height="700" %}
-
+---
 ## Paintings
 {% include image-gallery.html images="painting1.jpg" height="700" %}
 {% include image-gallery.html images="painting2.jpg" height="700" %}
