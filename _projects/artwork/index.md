@@ -30,4 +30,3 @@ main-image: /painting10.jpg
 {% include image-gallery.html images="painting16.jpg" height="700" %}
 {% include image-gallery.html images="painting17.jpg" height="700" %}
 {% include image-gallery.html images="painting18.jpg" height="700" %}
-{% include image-gallery.html images="painting19.jpg" height="700" %}
