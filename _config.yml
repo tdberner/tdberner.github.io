@@ -89,12 +89,12 @@ colors:
 
 # A few examples. 
 basic theme:
-  text: "#1a1c20"
+  text: "#2f3542"
   border: "#ddd"
-  link: "#4a76ee"
-  highlight: "#0c0cf2"
+  link: "#4862ab"
+  highlight: "#0e0e75"
   background: "#ffffff"
-  light_background: "#f3f5fb"
+  light_background: "#d7dae0"
   
   mint theme:
   text: "#2c3333"
