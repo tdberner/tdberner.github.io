@@ -12,12 +12,14 @@ skills:
 main-image: /case1.jpg
 ---
 {% include image-gallery.html images="case2.jpg, case3.jpg" height="450" %}
+---
 ## Frame
 - Structural caps + cross-beams
 - Vertical vents echo Terra panels
 - Handles integrated into top beam
 - Walnut fasteners for attachment
 {% include image-gallery.html images="case4.jpg, case5.jpg" height="350" %}
+---
 ## Risers
 - Lift PC ~1 inch → improved intake airflow
 - Slot language matches Terra
