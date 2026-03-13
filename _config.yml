@@ -84,7 +84,7 @@ colors:
   border: "#ffee00" # yellow
   link: "#00ff08" # green
   highlight: "#dd00ff" # pink
-  background: "#00ffe5" # white
+  background: "#ffffff" # white
   light_background: "#0011ff" # blue
 
 # A few examples. 
