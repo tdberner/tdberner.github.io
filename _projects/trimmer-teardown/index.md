@@ -8,7 +8,6 @@ skills:
   - Product architecture and modular system analysis
   - Quality Function Deployment (QFD) analysis
   - Manufacturing and materials analysis
----
 main-image: /wahl4.jpg
 ---
 ## Disassembled Product
