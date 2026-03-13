@@ -9,12 +9,14 @@ skills:
   - C programming for Atmega32u4
   - Breadboarding for circuit design
   - Mechanical design iteration and troubleshooting
-
+---
 main-image: /waldo1.jpg
 ---
 ## Final Waldo Design
 {% include image-gallery.html images="waldo3.jpg" height="600" %}
+---
 ## Laser-cutting instructions
 {% include image-gallery.html images="waldo2.png" height="500" %}
+---
 ## Waldo Dance!
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZDk01fJXQmc?si=GwJOAyddN559Qz8W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
