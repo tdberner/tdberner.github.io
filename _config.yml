@@ -80,12 +80,12 @@ formspree-key:   https://formspree.io/f/mgonklqz
 
 # Active theme (Updatethis to switch themes). Make sure to keep the indentation the samne.
 colors:
-  text: "#e5e9ff"
-  border: "#2c2f4a"
-  link: "#7aa2ff"
-  highlight: "#bb86fc"
-  background: "#121226"
-  light_background: "#1a1a36"
+  text: "#e6edf3"
+  border: "#2d3748"
+  link: "#58a6ff"
+  highlight: "#7c5cff"
+  background: "#0d1117"
+  light_background: "#161b22"
 
 
 # A few examples. 
@@ -121,13 +121,15 @@ lemon theme:
   background: "#fff8f8"
   light_background: "#fff5f6"
 
-  contrast:
-  text: "#ff0000" # red
-  border: "#ffee00" # yellow
-  link: "#00ff08" # green
-  highlight: "#dd00ff" # pink
-  background: "#ffffff" # white
-  light_background: "#0011ff" # blue
+  galaxy:
+  text: "#e5e9ff"
+  border: "#2c2f4a"
+  link: "#7aa2ff"
+  highlight: "#bb86fc"
+  background: "#121226"
+  light_background: "#1a1a36"
+
+  
 
 
 
