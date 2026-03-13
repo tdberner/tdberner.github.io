@@ -9,7 +9,6 @@ skills:
   - C programming for Atmega32u4
   - Breadboarding for circuit design
   - Mechanical design iteration and troubleshooting
----
 main-image: /waldo1.jpg
 ---
 ## Final Waldo Design
